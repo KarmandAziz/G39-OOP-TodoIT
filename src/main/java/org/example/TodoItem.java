@@ -79,7 +79,7 @@ public class TodoItem {
                 "Creator : " + creator;
     }
     public boolean isOverdue(){
-       if(deadline<done)
+
     }
 
 }
