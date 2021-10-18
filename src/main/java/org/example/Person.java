@@ -26,7 +26,6 @@ public class Person {
         return id;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -51,9 +50,9 @@ public class Person {
         this.email = email;
     }
 
+    public String getSummary(){
+        return "Name: "+firstName +" "+ lastName + "\n" + "Email: " + email;
+    }
 
 
-
-
-           // methods
 }
