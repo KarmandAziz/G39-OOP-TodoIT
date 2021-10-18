@@ -78,8 +78,6 @@ public class TodoItem {
                 + "Finished :" + done + "\n"  +
                 "Creator : " + creator;
     }
-    public boolean isOverdue(){
 
-    }
 
 }
