@@ -73,17 +73,27 @@ public class TodoItem {
         return creator;
     }
 
+    public boolean isOverdue(){
+        if(LocalDate.now().isAfter(deadline)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 
     public void setCreator(Person creator) throws RuntimeException{
         if(creator == null) throw new RuntimeException();
         this.creator = creator;
     }
     public String getSummary(){
-        return "Title: "+title +"\n" +
-                "Task: " + taskDescription + "\n"
+        return "Creator : " + creator.getSummary() + "\n"
+                + "Title: "+title +"\n"
+                + "Task: " + taskDescription + "\n"
                 + "Deadline :" + deadline + "\n"
-                + "Finished :" + done + "\n"  +
-                "Creator : " + creator.getSummary();
+                + "Finished :" + done + "\n";
+
     }
 
 
