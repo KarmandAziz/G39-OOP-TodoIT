@@ -1,6 +1,9 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
+import java.util.UUID;
 
 public class TodoItem {
        //fields
@@ -11,30 +14,23 @@ public class TodoItem {
     private boolean done;
     private Person creator;
 
+
     // Construction
 
-    public TodoItem(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
-        this.title = title;
-        this.taskDescription = taskDescription;
-        this.deadline = deadline;
-        this.done = done;
-        this.creator = creator;
-    }
 
     public TodoItem(int id,
                     String title,
                     String taskDescription,
                     LocalDate deadline,
                     boolean done,
-                    Person creator){
-        this.taskDescription = taskDescription;
-        this.deadline = deadline;
+                    Person creator)
+    {
+        this.id = id;
+        setTitle(title);
+        setTaskDescription(taskDescription);
+        setDeadline(deadline);
         this.done = done;
-        this.creator = creator;
-
-
-
-
+        setCreator(creator);
     }
 
 
@@ -43,12 +39,12 @@ public class TodoItem {
         return id;
     }
 
-
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) throws RuntimeException{
+        if(title == null) throw new RuntimeException("Title is null");
         this.title = title;
     }
 
@@ -64,7 +60,8 @@ public class TodoItem {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(LocalDate deadline) throws RuntimeException{
+        if(deadline == null) throw new RuntimeException("Deadline is null");
         this.deadline = deadline;
     }
 
@@ -76,15 +73,17 @@ public class TodoItem {
         return creator;
     }
 
-    public void setCreator(Person creator) {
+
+    public void setCreator(Person creator) throws RuntimeException{
+        if(creator == null) throw new RuntimeException();
         this.creator = creator;
     }
     public String getSummary(){
-        return "Title: "+title +"\n " +
-                ""+ "Task: " + taskDescription + "\n"
+        return "Title: "+title +"\n" +
+                "Task: " + taskDescription + "\n"
                 + "Deadline :" + deadline + "\n"
                 + "Finished :" + done + "\n"  +
-                "Creator : " + creator;
+                "Creator : " + creator.getSummary();
     }
 
 

@@ -17,12 +17,11 @@ public class Person {
             String firstName,
             String lastName,
             String email){
-        this.id = id;      // THIS MEANS THIS OBJECT
+        this.id = id;
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
     }
-
 
 
 //getters and setters
@@ -53,12 +52,13 @@ public class Person {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws RuntimeException {
+        if(email == null) throw new RuntimeException("Email is null");
         this.email = email;
     }
 
     public String getSummary(){
-        return "Name: "+firstName +" "+ lastName + "\n" + "Email: " + email;
+        return   "Id :" + id + "\n" +"Name: "+firstName +" "+ lastName + "\n" + "Email: " + email;
     }
 
 

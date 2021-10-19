@@ -15,9 +15,9 @@ public class TodoItemTask {
                             TodoItem todoItem,
                             Person assignee) {
             this.id = id;
-            this.assigned = assigned;
-            this.todoItem = todoItem;
-            this.assignee = assignee;
+            setAssigned(assigned);
+            setTodoItem(todoItem);
+            setAssignee(assignee);
         }
 
            // getters and setters
@@ -31,7 +31,10 @@ public class TodoItemTask {
     }
 
     public void setAssigned(boolean assigned) {
-        this.assigned = assigned;
+            if(assignee != null){
+                assigned = true;
+            }
+            this.assigned = assigned;
     }
 
     public TodoItem getTodoItem() {
