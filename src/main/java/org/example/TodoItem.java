@@ -13,17 +13,28 @@ public class TodoItem {
 
     // Construction
 
+    public TodoItem(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
+        this.title = title;
+        this.taskDescription = taskDescription;
+        this.deadline = deadline;
+        this.done = done;
+        this.creator = creator;
+    }
+
     public TodoItem(int id,
                     String title,
                     String taskDescription,
                     LocalDate deadline,
                     boolean done,
                     Person creator){
-        this.title = title;
         this.taskDescription = taskDescription;
         this.deadline = deadline;
         this.done = done;
         this.creator = creator;
+
+
+
+
     }
 
 
@@ -32,9 +43,6 @@ public class TodoItem {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -48,7 +56,7 @@ public class TodoItem {
         return taskDescription;
     }
 
-    public void setTaskDescription(String taskDescription) {
+    public void setTaskDescription(String taskDescription) throws RuntimeException{
         this.taskDescription = taskDescription;
     }
 

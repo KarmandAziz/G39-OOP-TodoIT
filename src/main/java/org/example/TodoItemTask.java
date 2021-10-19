@@ -38,7 +38,8 @@ public class TodoItemTask {
         return todoItem;
     }
 
-    public void setTodoItem(TodoItem todoItem) {
+    public void setTodoItem(TodoItem todoItem) throws RuntimeException {
+        if(todoItem == null) throw new RuntimeException("Name is null");
         this.todoItem = todoItem;
     }
 
@@ -46,7 +47,8 @@ public class TodoItemTask {
         return assignee;
     }
 
-    public void setAssignee(Person assignee) {
+    public void setAssignee(Person assignee) throws RuntimeException {
+        if(assignee == null) throw new RuntimeException("Name is null");
         this.assignee = assignee;
     }
 
@@ -66,4 +68,4 @@ public class TodoItemTask {
     }
 
 
-}
+

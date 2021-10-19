@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.UUID;
+
 public class Person {
            //Fields
       private int id;
@@ -10,17 +12,20 @@ public class Person {
 
 
        // Constructor
-    public Person(int id,
-                  String firstName,
-                  String lastName,
-                  String email){
+    public Person(
+            int id,
+            String firstName,
+            String lastName,
+            String email){
         this.id = id;      // THIS MEANS THIS OBJECT
-        this.firstName = firstName;
-        this. lastName = lastName;
-        this.email = email;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
     }
 
-       //getters and setters
+
+
+//getters and setters
 
     public int getId() {
         return id;
@@ -30,7 +35,8 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws RuntimeException{
+        if(firstName == null) throw new RuntimeException("FirstName is null");
         this.firstName = firstName;
     }
 
@@ -38,7 +44,8 @@ public class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws RuntimeException{
+        if(lastName == null) throw new RuntimeException("LastName is null");
         this.lastName = lastName;
     }
 
