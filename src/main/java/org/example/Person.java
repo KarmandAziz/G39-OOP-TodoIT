@@ -17,6 +17,9 @@ public class Person {
             String firstName,
             String lastName,
             String email){
+        if(id==0) {
+            throw new RuntimeException("Id is 0");
+        }
         this.id = id;
         setFirstName(firstName);
         setLastName(lastName);
