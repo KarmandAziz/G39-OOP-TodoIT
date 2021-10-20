@@ -17,7 +17,7 @@ public class TodoItemTest {
     public static final String TITLE = "Programming";
     public static final String TASK_DESCRIPTION = "Make applications";
     public static final LocalDate DEADLINE = LocalDate.parse("2020-10-15");
-    public static final boolean BOOLEAN = true;
+    public static final boolean DONE = true;
     private TodoItem testObject;
     private Person person;
 
@@ -34,7 +34,7 @@ public class TodoItemTest {
                 TITLE,
                 TASK_DESCRIPTION,
                 DEADLINE,
-                BOOLEAN,
+                DONE,
                 person
         );
     }
@@ -43,8 +43,9 @@ public class TodoItemTest {
         assertEquals(TITLE, testObject.getTitle());
         assertEquals(TASK_DESCRIPTION, testObject.getTaskDescription());
         assertEquals(DEADLINE, testObject.getDeadline());
-        assertTrue(String.valueOf(BOOLEAN), testObject.isDone());
+        assertTrue(String.valueOf(DONE), testObject.isDone());
         assertEquals(person, testObject.getCreator());
+        assertTrue(String.valueOf(DEADLINE), testObject.isOverdue());
     }
 
 

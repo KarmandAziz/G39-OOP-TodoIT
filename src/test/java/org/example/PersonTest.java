@@ -13,9 +13,9 @@ public class PersonTest {
     public static final String EMAIL = "Karmand94@gmail.com";
     private Person testObject;
 
+
     @Before
     public void setUp() {
-
         testObject = new Person(
                 ID,
                 FIRST_NAME,
@@ -30,6 +30,10 @@ public class PersonTest {
         assertEquals(FIRST_NAME, testObject.getFirstName());
         assertEquals(LAST_NAME, testObject.getLastName());
         assertEquals(EMAIL, testObject.getEmail());
+        assertEquals(
+                "Id :" + ID + "\n"
+                +"Name: "+FIRST_NAME +" "+ LAST_NAME + "\n"
+                        + "Email: " + EMAIL, testObject.getSummary());
 
     }
 

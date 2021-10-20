@@ -14,6 +14,7 @@ public class TodoItemTask {
                             boolean assigned,
                             TodoItem todoItem,
                             Person assignee) {
+            if(id == 0) throw new RuntimeException("Id is 0");
             this.id = id;
             setAssigned(assigned);
             setTodoItem(todoItem);
@@ -22,7 +23,7 @@ public class TodoItemTask {
 
            // getters and setters
 
-            public int getId() {
+    public int getId() {
         return id;
     }
 
