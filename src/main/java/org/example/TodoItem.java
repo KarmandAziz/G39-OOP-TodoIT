@@ -15,6 +15,7 @@ public class TodoItem {
     private Person creator;
 
 
+
     // Construction
 
 
@@ -25,6 +26,7 @@ public class TodoItem {
                     boolean done,
                     Person creator)
     {
+        if(id == 0) throw new RuntimeException("Id is 0");
         this.id = id;
         setTitle(title);
         setTaskDescription(taskDescription);
@@ -32,6 +34,7 @@ public class TodoItem {
         this.done = done;
         setCreator(creator);
     }
+
 
 
     //getters and setters
@@ -63,22 +66,24 @@ public class TodoItem {
     public void setDeadline(LocalDate deadline) throws RuntimeException{
         if(deadline == null) throw new RuntimeException("Deadline is null");
         this.deadline = deadline;
+
     }
 
     public boolean isDone() {
-        return done;
+        if(LocalDate.now().isBefore(deadline)){
+            return true;
+        }
+            return done;
+
     }
+
 
     public Person getCreator() {
         return creator;
     }
 
     public boolean isOverdue(){
-        if(LocalDate.now().isAfter(deadline)) {
-            return true;
-        }else{
-            return false;
-        }
+        return LocalDate.now().isAfter(deadline);
     }
 
 
