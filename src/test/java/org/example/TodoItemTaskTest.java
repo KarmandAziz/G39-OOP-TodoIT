@@ -17,6 +17,8 @@ public class TodoItemTaskTest {
     public static final LocalDate DEADLINE = LocalDate.parse("2020-10-15");
     public static final boolean DONE = true;
     public static final int ID = 1;
+    public static final int PERSONID = 2;
+    public static final int TODOID = 3;
 
 
     private TodoItemTask testObject;
@@ -24,19 +26,19 @@ public class TodoItemTaskTest {
     private TodoItem todoItem;
 
 
+
     @Before
     public void setUp() {
-        person = new Person(1,
+        person = new Person(PERSONID,
                 FIRST_NAME,
                 LAST_NAME,
                 EMAIL);
         todoItem = new TodoItem(
-                1,
+                TODOID,
                 TITLE,
                 TASK_DESCRIPTION,
                 DEADLINE,
-                DONE,
-                person);
+                DONE, person);
 
         testObject = new TodoItemTask(
                 ID,
@@ -52,12 +54,14 @@ public class TodoItemTaskTest {
     @Test
     public void testObject_successfully_instantiated() {
         assertTrue(testObject.isAssigned());
+        assertNotNull(String.valueOf(ID), testObject.getId());
+        assertNotNull(String.valueOf(testObject.setAssigned(false)));
         assertNotNull(String.valueOf(todoItem), testObject.getTodoItem());
         assertNotNull(String.valueOf(person), testObject.getAssignee());
         assertEquals("Id: " + ID + "\n"
                 + "Assigned status: " + true + "\n"
-                + "To do :" + todoItem.getTaskDescription() + "\n"
-                + "Person :" + person.getSummary(), testObject.getSummary());
+                + "To do: " + todoItem.getTaskDescription() + "\n"
+                + "Person: " + person.getSummary(), testObject.getSummary());
     }
 
     @Test(expected = RuntimeException.class)

@@ -56,6 +56,7 @@ public class TodoItem {
     }
 
     public void setTaskDescription(String taskDescription) throws RuntimeException{
+        if(taskDescription == null) throw new RuntimeException("Description is null");
         this.taskDescription = taskDescription;
     }
 
@@ -93,11 +94,11 @@ public class TodoItem {
         this.creator = creator;
     }
     public String getSummary(){
-        return "Creator : " + creator.getSummary() + "\n"
+        return "Creator: " + creator.getSummary() + "\n"
                 + "Title: "+title +"\n"
                 + "Task: " + taskDescription + "\n"
-                + "Deadline :" + deadline + "\n"
-                + "Finished :" + done + "\n";
+                + "Deadline: " + deadline + "\n"
+                + "Finished: " + done + "\n";
 
     }
 

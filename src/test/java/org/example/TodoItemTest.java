@@ -18,19 +18,30 @@ public class TodoItemTest {
     public static final String TASK_DESCRIPTION = "Make applications";
     public static final LocalDate DEADLINE = LocalDate.parse("2021-10-15");
     public static final boolean DONE = true;
+    public static final int PERSONID = 1;
+    public static final int TODOID = 1;
+    public static final int CREATORID = 2324;
+    public static final String CREATORFIRSTNAME = "Karmand";
+    public static final String CREATORLASTNAME = "Aziz";
+    public static final String CREATOREMAIL = "Karmand94gmail.com";
     private TodoItem testObject;
     private Person person;
+    private Person creator;
 
 
     @Before
     public void setUp(){
+        creator = new Person(
+                CREATORID,
+                CREATORFIRSTNAME, CREATORLASTNAME,
+                CREATOREMAIL);
         person = new Person(
-                1,
+                PERSONID,
                 FIRST_NAME,
                 LAST_NAME,
                 EMAIL);
         testObject = new TodoItem(
-                1,
+                TODOID,
                 TITLE,
                 TASK_DESCRIPTION,
                 DEADLINE,
@@ -40,12 +51,22 @@ public class TodoItemTest {
     }
     @Test
     public void setTestObject_successfully_instantiated() {
+        assertNotNull(String.valueOf(TODOID), testObject.getId());
         assertEquals(TITLE, testObject.getTitle());
         assertEquals(TASK_DESCRIPTION, testObject.getTaskDescription());
         assertEquals(DEADLINE, testObject.getDeadline());
         assertTrue(String.valueOf(DONE), testObject.isDone());
         assertEquals(person, testObject.getCreator());
         assertTrue(String.valueOf(DEADLINE), testObject.isOverdue());
+        assertEquals(DONE, testObject.isDone());
+        assertTrue(String.valueOf(DONE), testObject.isDone());
+        assertEquals(("Creator: " + person.getSummary() + "\n"
+                + "Title: "+TITLE + "\n"
+                + "Task: " + TASK_DESCRIPTION + "\n"
+                + "Deadline: " + DEADLINE + "\n"
+                + "Finished: " + DONE + "\n"), testObject.getSummary());
+
+        assertNotEquals(person.getSummary(), creator.getSummary());
     }
 
 

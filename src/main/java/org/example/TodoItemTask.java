@@ -1,7 +1,5 @@
 package org.example;
 
-import java.time.LocalDate;
-
 public class TodoItemTask {
         // Fields
        private int id;
@@ -31,11 +29,12 @@ public class TodoItemTask {
         return assigned;
     }
 
-    public void setAssigned(boolean assigned) {
+    public Object setAssigned(boolean assigned) {
             if(assignee != null){
                 assigned = true;
             }
             this.assigned = assigned;
+        return null;
     }
 
     public TodoItem getTodoItem() {
@@ -59,8 +58,8 @@ public class TodoItemTask {
     public String getSummary() {
         return "Id: " + id + "\n"
                 + "Assigned status: " + assigned + "\n"
-                + "To do :" + todoItem.getTaskDescription() + "\n"
-                + "Person :" +assignee.getSummary();
+                + "To do: " + todoItem.getTaskDescription() + "\n"
+                + "Person: " +assignee.getSummary();
 
     }
 
