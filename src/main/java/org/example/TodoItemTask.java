@@ -60,7 +60,7 @@ public class TodoItemTask {
         return "Id: " + id + "\n"
                 + "Assigned status: " + assigned + "\n"
                 + "To do :" + todoItem.getTaskDescription() + "\n"
-                + "Person :" + assignee.getSummary();
+                + "Person :" +assignee.getSummary();
 
     }
 

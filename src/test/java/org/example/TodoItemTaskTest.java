@@ -46,7 +46,7 @@ public class TodoItemTaskTest {
 
 
 
-        System.out.println(person.getSummary());
+        System.out.println(testObject.getSummary());
     }
 
     @Test
