@@ -16,7 +16,7 @@ public class TodoItemTest {
     public static final String EMAIL = "Arne23@hotmail.com";
     public static final String TITLE = "Programming";
     public static final String TASK_DESCRIPTION = "Make applications";
-    public static final LocalDate DEADLINE = LocalDate.parse("2020-10-15");
+    public static final LocalDate DEADLINE = LocalDate.parse("2021-10-15");
     public static final boolean DONE = true;
     private TodoItem testObject;
     private Person person;

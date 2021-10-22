@@ -44,6 +44,9 @@ public class TodoItemTaskTest {
                 todoItem,
                 person);
 
+
+
+        System.out.println(person.getSummary());
     }
 
     @Test
@@ -53,8 +56,8 @@ public class TodoItemTaskTest {
         assertNotNull(String.valueOf(person), testObject.getAssignee());
         assertEquals("Id: " + ID + "\n"
                 + "Assigned status: " + true + "\n"
-                + "To do :" + todoItem + "\n"
-                + "Person :" + person, testObject.getSummary());
+                + "To do :" + todoItem.getTaskDescription() + "\n"
+                + "Person :" + person.getSummary(), testObject.getSummary());
     }
 
     @Test(expected = RuntimeException.class)

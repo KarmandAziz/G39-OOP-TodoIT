@@ -59,8 +59,8 @@ public class TodoItemTask {
     public String getSummary() {
         return "Id: " + id + "\n"
                 + "Assigned status: " + assigned + "\n"
-                + "To do :" + todoItem + "\n"
-                + "Person :" + assignee;
+                + "To do :" + todoItem.getTaskDescription() + "\n"
+                + "Person :" + assignee.getSummary();
 
     }
 
