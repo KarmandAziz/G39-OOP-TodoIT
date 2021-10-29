@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.model.Person;
 import org.junit.Before;
 import org.junit.Test;
 

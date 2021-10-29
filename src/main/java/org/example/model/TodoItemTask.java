@@ -1,4 +1,7 @@
-package org.example;
+package org.example.model;
+
+import org.example.model.Person;
+import org.example.model.TodoItem;
 
 public class TodoItemTask {
         // Fields
@@ -56,10 +59,12 @@ public class TodoItemTask {
     }
 
     public String getSummary() {
-        return "Id: " + id + "\n"
-                + "Assigned status: " + assigned + "\n"
+        if(assigned)
+            return "Id: " + id + "\n"
+                + "Assigned status: " + true + "\n"
                 + "To do: " + todoItem.getTaskDescription() + "\n"
                 + "Person: " +assignee.getSummary();
+        else return id + " is not assigned";
 
     }
 

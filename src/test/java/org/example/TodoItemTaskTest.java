@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.model.Person;
+import org.example.model.TodoItem;
+import org.example.model.TodoItemTask;
 import org.junit.Before;
 import org.junit.Test;
 

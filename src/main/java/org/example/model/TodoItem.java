@@ -1,13 +1,12 @@
-package org.example;
+package org.example.model;
+
+import org.example.model.Person;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDateTime;
-import java.util.UUID;
 
 public class TodoItem {
        //fields
-    private int id;
+    private final int id;
     private String title;
     private String taskDescription;
     private LocalDate deadline;
@@ -31,7 +30,7 @@ public class TodoItem {
         setTitle(title);
         setTaskDescription(taskDescription);
         setDeadline(deadline);
-        this.done = done;
+        setDone(done);
         setCreator(creator);
     }
 
@@ -40,6 +39,10 @@ public class TodoItem {
     //getters and setters
     public int getId() {
         return id;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public String getTitle() {
@@ -85,7 +88,10 @@ public class TodoItem {
 
     public boolean isOverdue(){
         return LocalDate.now().isAfter(deadline);
-    }
+
+        }
+
+
 
 
 

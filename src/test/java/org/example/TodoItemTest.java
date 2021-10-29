@@ -1,10 +1,11 @@
 package org.example;
 
+import org.example.model.Person;
+import org.example.model.TodoItem;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import static org.junit.Assert.*;
 
