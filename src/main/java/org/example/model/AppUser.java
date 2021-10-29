@@ -44,14 +44,6 @@ public class AppUser {
     }
 
     @Override
-    public String toString() {
-        return "AppUser{" +
-                "username='" + username + '\'' +
-                ", ROLE_APP_USER=" + role +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -62,5 +54,13 @@ public class AppUser {
     @Override
     public int hashCode() {
         return Objects.hash(username, role);
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "username='" + username + '\'' +
+                ", role=" + role +
+                '}';
     }
 }
