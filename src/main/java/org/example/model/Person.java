@@ -1,5 +1,6 @@
 package org.example.model;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Person {
@@ -8,6 +9,7 @@ public class Person {
       private String firstName;
       private String lastName;
       private String email;
+      private AppUser credentials;
 
 
 
@@ -26,6 +28,14 @@ public class Person {
 
 
 //getters and setters
+
+    public AppUser getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
+    }
 
     public int getId() {
         return id;
@@ -58,9 +68,26 @@ public class Person {
         this.email = email;
     }
 
-    public String getSummary(){
-        return   "Id :" + id + "\n" +"Name: "+firstName +" "+ lastName + "\n" + "Email: " + email;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(email, person.email);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email);
+    }
 }

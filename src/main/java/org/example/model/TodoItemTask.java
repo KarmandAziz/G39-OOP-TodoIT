@@ -3,6 +3,8 @@ package org.example.model;
 import org.example.model.Person;
 import org.example.model.TodoItem;
 
+import java.util.Objects;
+
 public class TodoItemTask {
         // Fields
        private int id;
@@ -58,22 +60,28 @@ public class TodoItemTask {
         this.assignee = assignee;
     }
 
-    public String getSummary() {
-        if(assigned)
-            return "Id: " + id + "\n"
-                + "Assigned status: " + true + "\n"
-                + "To do: " + todoItem.getTaskDescription() + "\n"
-                + "Person: " +assignee.getSummary();
-        else return id + " is not assigned";
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItemTask that = (TodoItemTask) o;
+        return id == that.id && assigned == that.assigned && Objects.equals(todoItem, that.todoItem);
     }
 
-
-
-
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, assigned, todoItem);
     }
+
+    @Override
+    public String toString() {
+        return "TodoItemTask{" +
+                "id=" + id +
+                ", assigned=" + assigned +
+                ", todoItem=" + todoItem +
+                '}';
+    }
+}
 
 
 

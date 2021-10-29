@@ -3,6 +3,7 @@ package org.example.model;
 import org.example.model.Person;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class TodoItem {
        //fields
@@ -91,22 +92,32 @@ public class TodoItem {
 
         }
 
-
-
-
-
     public void setCreator(Person creator) throws RuntimeException{
         if(creator == null) throw new RuntimeException();
         this.creator = creator;
     }
-    public String getSummary(){
-        return "Creator: " + creator.getSummary() + "\n"
-                + "Title: "+title +"\n"
-                + "Task: " + taskDescription + "\n"
-                + "Deadline: " + deadline + "\n"
-                + "Finished: " + done + "\n";
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return id == todoItem.id && done == todoItem.done && Objects.equals(title, todoItem.title) && Objects.equals(taskDescription, todoItem.taskDescription) && Objects.equals(deadline, todoItem.deadline);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, taskDescription, deadline, done);
+    }
 
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", deadline=" + deadline +
+                ", done=" + done +
+                '}';
+    }
 }
