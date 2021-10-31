@@ -11,20 +11,15 @@ public class Person {
       private String email;
       private AppUser credentials;
 
-
-
-       // Constructor
-    public Person(
-            int id,
-            String firstName,
-            String lastName,
-            String email){
+    public Person(int id, String firstName, String lastName, String email, AppUser credentials) {
         if(id == 0) throw new RuntimeException("Id is 0");
         this.id = id;
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
+        setCredentials(credentials);
     }
+
 
 
 //getters and setters

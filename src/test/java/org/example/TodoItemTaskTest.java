@@ -32,10 +32,7 @@ public class TodoItemTaskTest {
 
     @Before
     public void setUp() {
-        person = new Person(PERSONID,
-                FIRST_NAME,
-                LAST_NAME,
-                EMAIL);
+
         todoItem = new TodoItem(
                 TODOID,
                 TITLE,
@@ -51,7 +48,7 @@ public class TodoItemTaskTest {
 
 
 
-        System.out.println(testObject.getSummary());
+
     }
 
     @Test
@@ -61,10 +58,7 @@ public class TodoItemTaskTest {
         assertNotNull(String.valueOf(testObject.setAssigned(false)));
         assertNotNull(String.valueOf(todoItem), testObject.getTodoItem());
         assertNotNull(String.valueOf(person), testObject.getAssignee());
-        assertEquals("Id: " + ID + "\n"
-                + "Assigned status: " + true + "\n"
-                + "To do: " + todoItem.getTaskDescription() + "\n"
-                + "Person: " + person.getSummary(), testObject.getSummary());
+
     }
 
     @Test(expected = RuntimeException.class)

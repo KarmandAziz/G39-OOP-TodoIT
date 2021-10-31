@@ -17,12 +17,7 @@ public class PersonTest {
 
     @Before
     public void setUp() {
-        testObject = new Person(
-                ID,
-                FIRST_NAME,
-                LAST_NAME,
-                EMAIL
-        );
+
     }
 
     @Test
@@ -31,10 +26,7 @@ public class PersonTest {
         assertEquals(FIRST_NAME, testObject.getFirstName());
         assertEquals(LAST_NAME, testObject.getLastName());
         assertEquals(EMAIL, testObject.getEmail());
-        assertEquals(
-                "Id :" + ID + "\n"
-                +"Name: "+FIRST_NAME +" "+ LAST_NAME + "\n"
-                        + "Email: " + EMAIL, testObject.getSummary());
+
 
     }
 
@@ -42,7 +34,7 @@ public class PersonTest {
    public void null_throws_runtime_exception(){
         //id is type INTEGER and can't be null!
         //id will throw runtime exception on 0
-        new Person(0,null,null,null);
+
 
     }
 

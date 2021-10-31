@@ -32,15 +32,7 @@ public class TodoItemTest {
 
     @Before
     public void setUp(){
-        creator = new Person(
-                CREATORID,
-                CREATORFIRSTNAME, CREATORLASTNAME,
-                CREATOREMAIL);
-        person = new Person(
-                PERSONID,
-                FIRST_NAME,
-                LAST_NAME,
-                EMAIL);
+
         testObject = new TodoItem(
                 TODOID,
                 TITLE,
@@ -61,13 +53,7 @@ public class TodoItemTest {
         assertTrue(String.valueOf(DEADLINE), testObject.isOverdue());
         assertEquals(DONE, testObject.isDone());
         assertTrue(String.valueOf(DONE), testObject.isDone());
-        assertEquals(("Creator: " + person.getSummary() + "\n"
-                + "Title: "+TITLE + "\n"
-                + "Task: " + TASK_DESCRIPTION + "\n"
-                + "Deadline: " + DEADLINE + "\n"
-                + "Finished: " + DONE + "\n"), testObject.getSummary());
 
-        assertNotEquals(person.getSummary(), creator.getSummary());
     }
 
 
