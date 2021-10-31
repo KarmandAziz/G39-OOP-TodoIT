@@ -7,6 +7,9 @@ public enum AppRole {
 
     private final String appRole;
 
+
+
+
     AppRole(String appRole) {
         this.appRole = appRole;
     }

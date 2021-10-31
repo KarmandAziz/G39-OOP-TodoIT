@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Person {
            //Fields
-      private int id;
+      private final int id;
       private String firstName;
       private String lastName;
       private String email;
@@ -66,10 +66,10 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                "id: " + id +
+                ", firstName: '" + firstName + '\'' +
+                ", lastName: '" + lastName + '\'' +
+                ", email: '" + email + '\'' +
                 '}';
     }
 

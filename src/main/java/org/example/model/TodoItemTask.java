@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class TodoItemTask {
         // Fields
-       private int id;
+       private final int id;
        private boolean assigned;
        private TodoItem todoItem;
        private Person assignee;
@@ -76,9 +76,9 @@ public class TodoItemTask {
     @Override
     public String toString() {
         return "TodoItemTask{" +
-                "id=" + id +
-                ", assigned=" + assigned +
-                ", todoItem=" + todoItem +
+                "id: " + id +
+                ", assigned: " + assigned +
+                ", todoItem: " + todoItem +
                 '}';
     }
 }
