@@ -9,17 +9,6 @@ import java.util.List;
 
 public class AppUserDAOCollection implements AppUserDAO{
 
-    private static final AppUserDAOCollection INSTANCE;
-    static{ INSTANCE = new AppUserDAOCollection(null); }
-
-    public static AppUserDAOCollection getInstance(){
-        return INSTANCE;
-    }
-
-    static AppUserDAOCollection getTestInstance(List<AppUser> appUsers){
-        return new AppUserDAOCollection(appUsers);
-    }
-
     private List<AppUser> appUsersStorage = new ArrayList<>();
 
     public AppUserDAOCollection(List<AppUser> appUsersStorage) {
@@ -59,6 +48,6 @@ public class AppUserDAOCollection implements AppUserDAO{
     @Override
     public void remove(String username) {
         AppUser user = findByUsername(username);
-    this.appUsersStorage.remove(user);
+        this.appUsersStorage.remove(user);
     }
 }

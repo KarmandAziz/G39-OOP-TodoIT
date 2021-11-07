@@ -2,10 +2,10 @@ package org.example.sequencers;
 
 public class PersonIdSequencer {
 
-    private int currentId;
+    private static int currentId;
 
     public int nextId(){
-        return currentId++;
+        return ++currentId;
     }
 
     public int getCurrentId() {
@@ -13,6 +13,6 @@ public class PersonIdSequencer {
     }
 
     public void setCurrentId(int currentId) {
-        this.currentId = currentId;
+        PersonIdSequencer.currentId = currentId;
     }
 }
