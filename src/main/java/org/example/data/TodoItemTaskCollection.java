@@ -28,12 +28,8 @@ public class TodoItemTaskCollection implements TodoItemTaskDAO {
 
     @Override
     public TodoItemTask persist(TodoItemTask todoItemTask) {
-        boolean added = todoItemTasksList.add(todoItemTask);
-        if(added){
-            return todoItemTask;
-        }else{
-            return null;
-        }
+       todoItemTasksList.add(todoItemTask);
+       return todoItemTask;
     }
 
     @Override
