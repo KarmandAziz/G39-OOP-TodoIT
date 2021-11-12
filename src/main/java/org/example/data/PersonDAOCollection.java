@@ -16,7 +16,11 @@ public class PersonDAOCollection implements PersonDAO {
         INSTANCE = new PersonDAOCollection(null);
     }
 
-   public static PersonDAOCollection getInstance(){
+    static PersonDAOCollection getTestInstance(List<Person> person){
+        return new PersonDAOCollection(person);
+    }
+
+    public static PersonDAOCollection getInstance(){
         return INSTANCE;
    }
 
@@ -51,7 +55,6 @@ public class PersonDAOCollection implements PersonDAO {
       List<Person> personToRemove = personStorage.stream()
                       .filter(person -> person.getId() == Id)
                               .collect(Collectors.toList());
-
       personStorage.remove(personToRemove);
     }
 
