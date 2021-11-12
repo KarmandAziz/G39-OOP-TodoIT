@@ -4,18 +4,27 @@ import org.example.model.TodoItemTask;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class TodoItemTaskCollection implements TodoItemTaskDAO {
 
-    private Collection<TodoItemTask> todoItemTasksList = new ArrayList<>();
-
-    public TodoItemTaskCollection(Collection<TodoItemTask> todoItemTasksList) {
-        if(todoItemTasksList == null){
-            this.todoItemTasksList = new ArrayList<>();
-        }else{
-            todoItemTasksList = todoItemTasksList;
-        }
+   private static final TodoItemTaskCollection INSTANCE;
+   static {
+       INSTANCE = new TodoItemTaskCollection(null);
     }
+
+    public static TodoItemTaskCollection getInstance(){
+        return INSTANCE;
+    }
+
+    private TodoItemTaskCollection(Collection<TodoItemTask> todoItemTasksList) {
+       this.todoItemTasksList =
+               todoItemTasksList
+                       == null ? new ArrayList<>() : new ArrayList<>(todoItemTasksList);
+    }
+
+    private Collection<TodoItemTask> todoItemTasksList;
 
     @Override
     public TodoItemTask persist(TodoItemTask todoItemTask) {
@@ -28,46 +37,39 @@ public class TodoItemTaskCollection implements TodoItemTaskDAO {
     }
 
     @Override
-    public TodoItemTask findById(int id) {
-        for(TodoItemTask todoItemTask : todoItemTasksList){
-            if(todoItemTask.getId() == id){
-                return todoItemTask;
-            }
-        }
-        return null;
-    }
-
-    @Override
     public Collection<TodoItemTask> findAll() {
         return new ArrayList<>(todoItemTasksList);
     }
 
     @Override
+    public Optional<TodoItemTask> findByID(Integer ID) {
+        return todoItemTasksList.stream()
+                .filter(todoItemTask -> todoItemTask.getId() == ID)
+                .findFirst();
+    }
+
+    @Override
+    public void remove(Integer ID) {
+        Collection<TodoItemTask> taskToRemove = todoItemTasksList.stream()
+                .filter(todoItemTask -> todoItemTask.getId() == ID)
+                .collect(Collectors.toList());
+
+        todoItemTasksList.remove(taskToRemove);
+    }
+
+
+    @Override
     public Collection<TodoItemTask> findByAssignedStatus(Boolean status) {
-        Collection<TodoItemTask> statusList = new ArrayList<>();
-        for(TodoItemTask task : todoItemTasksList){
-            if(task.isAssigned()){
-                statusList.add(task);
-            }
-        }
-        return statusList;
+        return todoItemTasksList.stream()
+                .filter(todoItemTask -> todoItemTask.isAssigned() == status)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Collection<TodoItemTask> findByPersonId(int personId) {
-        Collection<TodoItemTask> person = new ArrayList<>();
-        for(TodoItemTask person1 : todoItemTasksList){
-            if (person1.getId() == personId){
-                person.add(person1);
-            }
-        }
-        return person;
+        return todoItemTasksList.stream()
+                .filter(todoItemTask -> todoItemTask.getAssignee().equals(personId))
+                .collect(Collectors.toList());
     }
 
-    @Override
-    public void remove(int id) {
-        TodoItemTask task = findById(id);
-        this.todoItemTasksList.remove(task);
-
-    }
 }

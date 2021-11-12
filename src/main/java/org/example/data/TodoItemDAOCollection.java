@@ -30,13 +30,11 @@ public class TodoItemDAOCollection implements TodoItemDAO{
                 todoItemList == null ? new ArrayList<>() : new ArrayList<>(todoItemList);
         }
 
-
     @Override
     public TodoItem persist(TodoItem todoItem) {
         todoItemList.add(todoItem);
         return todoItem;
     }
-
 
     @Override
     public Collection<TodoItem> findAll() {
@@ -68,7 +66,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
     @Override
     public Collection<TodoItem> findByTitleContains(String title) {
        return todoItemList.stream()
-               .filter(todoItem -> todoItem.getTitle().equalsIgnoreCase(title))
+               .filter(todoItem -> todoItem.getTitle().contains(title))
                .collect(Collectors.toList());
     }
 
@@ -77,9 +75,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
         return todoItemList.stream()
                 .filter(todoItem -> todoItem.getCreator().equals(personid))
                 .collect(Collectors.toList());
-
     }
-
 
     @Override
     public Collection<TodoItem> findByDeadlineBefore(LocalDate date) {
@@ -94,6 +90,5 @@ public class TodoItemDAOCollection implements TodoItemDAO{
                 .filter(todoItem -> todoItem.getDeadline().isAfter(date))
                 .collect(Collectors.toList());
     }
-
 
 }

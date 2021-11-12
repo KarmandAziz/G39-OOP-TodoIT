@@ -4,13 +4,9 @@ import org.example.model.TodoItemTask;
 
 import java.util.Collection;
 
-public interface TodoItemTaskDAO {
+public interface TodoItemTaskDAO extends GenericCrud<TodoItemTask, Integer>{
 
-    TodoItemTask persist (TodoItemTask todoItemTask);
-    TodoItemTask findById (int id);
-    Collection<TodoItemTask> findAll();
     Collection<TodoItemTask> findByAssignedStatus(Boolean status);
     Collection<TodoItemTask> findByPersonId(int personId);
-    void remove(int id);
 
 }
