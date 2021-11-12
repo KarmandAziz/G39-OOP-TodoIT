@@ -5,37 +5,43 @@ import org.example.model.AppUser;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class AppUserDAOCollection implements AppUserDAO{
 
-    private List<AppUser> appUsersStorage = new ArrayList<>();
+
+    private static final AppUserDAOCollection INSTANCE;
+    static {
+        INSTANCE = new AppUserDAOCollection(null);
+    }
+
+    public static AppUserDAOCollection getInstance(){
+        return INSTANCE;
+    }
+
+    static AppUserDAOCollection getTestInstance(List<AppUser> appUsers){
+        return new  AppUserDAOCollection(appUsers);
+    }
+
+    private Collection<AppUser> appUsersStorage;
 
     public AppUserDAOCollection(List<AppUser> appUsersStorage) {
-        if(appUsersStorage == null){
-            this.appUsersStorage = new ArrayList<>();
-        }else{
-            appUsersStorage = appUsersStorage;
-        }
+        this.appUsersStorage =
+                appUsersStorage == null ? new ArrayList<>() : new ArrayList<>(appUsersStorage);
     }
 
     @Override
     public AppUser persist(AppUser appUser) {
-      boolean added = appUsersStorage.add(appUser);
-        if(added){
-            return appUser;
-        }else{
-            return null;
-        }
+     appUsersStorage.add(appUser);
+     return appUser;
     }
 
     @Override
-    public AppUser findByUsername(String username) {
-        for(AppUser user : appUsersStorage){
-            if(user.getUsername().equals(username)){
-                return user;
-            }
-        }
-        return null;
+    public List<AppUser> findByUsername(String username) {
+        return appUsersStorage.stream()
+                .filter(appUser -> appUser.getUsername().equalsIgnoreCase(username))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -43,10 +49,26 @@ public class AppUserDAOCollection implements AppUserDAO{
         return new ArrayList<>(appUsersStorage);
         }
 
+    @Override
+    public Optional<AppUser> findByID(String s) {
+        return Optional.empty();
+    }
+
 
     @Override
     public void remove(String username) {
-        AppUser user = findByUsername(username);
-        this.appUsersStorage.remove(user);
+        Collection<AppUser> toBeRemoved = appUsersStorage.stream()
+                .filter(appUser -> appUser.getUsername().equalsIgnoreCase(username))
+                .collect(Collectors.toList());
+        appUsersStorage.remove(toBeRemoved);
     }
+
+
+
+
+
+
+
+
+
 }

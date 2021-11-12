@@ -2,12 +2,11 @@ package org.example.data;
 
 import org.example.model.AppUser;
 
-import java.util.Collection;
+import java.util.List;
 
-public interface AppUserDAO {
-
-    AppUser persist(AppUser appUser);
-    AppUser findByUsername(String username);
-    Collection<AppUser> findAll();
+public interface AppUserDAO extends GenericCrud<AppUser, String>{
     void remove(String username);
+    List<AppUser> findByUsername(String username);
+
+
 }
