@@ -1,15 +1,11 @@
-package org.example.dao;
+package org.example.data;
 
-import com.sun.tools.javac.comp.Todo;
-import org.example.model.AppUser;
-import org.example.model.Person;
 import org.example.model.TodoItem;
-import org.example.sequencers.PersonIdSequencer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
+import java.util.Optional;
 
 public class TodoItemCollection implements TodoItemDAO{
 
@@ -33,19 +29,20 @@ public class TodoItemCollection implements TodoItemDAO{
         }
     }
 
-    @Override
-    public TodoItem findByID(int id) {
-        for(TodoItem item : todoItemList){
-            if(item.getId() == id){
-                return item;
-            }
-        }
-        return null;
-    }
 
     @Override
     public Collection<TodoItem> findAll() {
         return new ArrayList<>(todoItemList);
+    }
+
+    @Override
+    public Optional<TodoItem> findByID(Integer integer) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void remove(Integer integer) {
+
     }
 
     @Override
@@ -103,10 +100,5 @@ public class TodoItemCollection implements TodoItemDAO{
         return deadlineAfterList;
     }
 
-    @Override
-    public void remove(int id) {
-        TodoItem item = findByID(id);
-        this.todoItemList.remove(item);
 
-    }
 }

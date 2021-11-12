@@ -1,6 +1,5 @@
-package org.example.dao;
+package org.example.data;
 
-import org.example.App;
 import org.example.model.AppUser;
 
 import java.util.ArrayList;

@@ -1,9 +1,12 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Person {
+public class Person implements Serializable {
+
+
            //Fields
       private final int id;
       private String firstName;

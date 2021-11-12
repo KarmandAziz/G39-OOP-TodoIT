@@ -1,7 +1,5 @@
-package org.example.dao;
+package org.example.data;
 
-import com.sun.tools.javac.comp.Todo;
-import org.example.model.TodoItem;
 import org.example.model.TodoItemTask;
 
 import java.util.Collection;

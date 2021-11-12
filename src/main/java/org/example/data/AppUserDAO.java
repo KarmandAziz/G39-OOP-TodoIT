@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.data;
 
 import org.example.model.AppUser;
 
