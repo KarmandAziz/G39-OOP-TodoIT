@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Hello world!
@@ -18,12 +19,14 @@ public class App {
     public static void main(String[] args) {
 
         PersonDAOCollection personDAOCollection = PersonDAOCollection.getInstance();
-        personDAOCollection.persist(
-                new Person(1, "Karmand", "Aziz","Karmand94@gmail.com",
-                        new AppUser("Karmand", "Secret", AppRole.ROLE_APP_ADMIN)));
+       // personDAOCollection.persist(
+               // new Person(1, "Karmand", "Aziz","Karmand94@gmail.com",
+                 //       new AppUser("Karmand", "Secret", AppRole.ROLE_APP_ADMIN)));
 
-        JSONManager manger = JSONManager.getInstance();
-        manger.serializeToFile(personDAOCollection.findAll(), new File("src/main/resources/json/person.json"));
+        JSONManager manager = JSONManager.getInstance();
+        List<Person> deserialized = manager.deserializeFromFile(new File("src/main/resources/json/person.json"),Person.class);
+        deserialized.forEach(System.out::println);
+
 
 
     shutdown();
