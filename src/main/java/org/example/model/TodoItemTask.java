@@ -1,5 +1,6 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.example.model.Person;
 import org.example.model.TodoItem;
 
@@ -8,10 +9,13 @@ import java.util.Objects;
 
 public class TodoItemTask implements Serializable {
 
-       private int id;
-       private boolean assigned;
-       private TodoItem todoItem;
-       private Person assignee;
+    private int id;
+    private boolean assigned;
+    private TodoItem todoItem;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Person assignee;
+
+
 
 
         public TodoItemTask(int id,

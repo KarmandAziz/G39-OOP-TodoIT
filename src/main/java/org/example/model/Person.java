@@ -1,5 +1,7 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -11,6 +13,7 @@ public class Person implements Serializable {
       private String firstName;
       private String lastName;
       private String email;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
       private AppUser credentials;
 
     public Person(int id, String firstName, String lastName, String email, AppUser credentials)throws RuntimeException {

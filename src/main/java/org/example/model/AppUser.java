@@ -1,12 +1,15 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 public class AppUser implements Serializable {
 
     private String username;
-    private String password;
+    private transient String password;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private AppRole role;
 
 

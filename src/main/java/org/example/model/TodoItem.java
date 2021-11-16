@@ -1,5 +1,6 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.example.model.Person;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class TodoItem implements Serializable {
     private String taskDescription;
     private LocalDate deadline;
     private boolean done;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Person creator;
 
 
