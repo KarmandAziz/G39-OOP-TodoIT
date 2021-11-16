@@ -3,20 +3,21 @@ package org.example.model;
 import org.example.model.Person;
 import org.example.model.TodoItem;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class TodoItemTask {
-        // Fields
-       private final int id;
+public class TodoItemTask implements Serializable {
+
+       private int id;
        private boolean assigned;
        private TodoItem todoItem;
        private Person assignee;
 
-        //constructor
+
         public TodoItemTask(int id,
                             boolean assigned,
                             TodoItem todoItem,
-                            Person assignee) {
+                            Person assignee)throws RuntimeException {
             if(id == 0) throw new RuntimeException("Id is 0");
             this.id = id;
             setAssigned(assigned);
@@ -24,7 +25,9 @@ public class TodoItemTask {
             setAssignee(assignee);
         }
 
-           // getters and setters
+        TodoItemTask(){}
+
+
 
     public int getId() {
         return id;

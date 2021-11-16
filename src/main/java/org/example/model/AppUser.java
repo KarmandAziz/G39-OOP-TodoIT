@@ -1,21 +1,23 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class AppUser {
-         //Field
+public class AppUser implements Serializable {
+
     private String username;
     private String password;
     private AppRole role;
 
-         //constructor
-    public AppUser(String username, String password, AppRole role) {
+
+    public AppUser(String username, String password, AppRole role)throws RuntimeException {
         setUsername(username);
         setPassword(password);
         setRole(role);
     }
 
-             //methods
+   AppUser(){}
+
     public String getUsername() {
         return username;
     }

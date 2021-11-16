@@ -7,14 +7,13 @@ import java.util.UUID;
 public class Person implements Serializable {
 
 
-           //Fields
-      private final int id;
+      private int id;
       private String firstName;
       private String lastName;
       private String email;
       private AppUser credentials;
 
-    public Person(int id, String firstName, String lastName, String email, AppUser credentials) {
+    public Person(int id, String firstName, String lastName, String email, AppUser credentials)throws RuntimeException {
         if(id == 0) throw new RuntimeException("Id is 0");
         this.id = id;
         setFirstName(firstName);
@@ -23,7 +22,7 @@ public class Person implements Serializable {
         setCredentials(credentials);
     }
 
-
+    Person(){}
 
 //getters and setters
 

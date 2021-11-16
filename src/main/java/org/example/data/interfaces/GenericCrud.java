@@ -1,4 +1,4 @@
-package org.example.data;
+package org.example.data.interfaces;
 
 import java.util.Collection;
 import java.util.Optional;

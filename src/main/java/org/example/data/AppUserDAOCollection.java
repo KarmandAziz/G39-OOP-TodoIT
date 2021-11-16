@@ -1,5 +1,6 @@
 package org.example.data;
 
+import org.example.data.interfaces.AppUserDAO;
 import org.example.model.AppUser;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class AppUserDAOCollection implements AppUserDAO{
+public class AppUserDAOCollection implements AppUserDAO {
 
 
     private static final AppUserDAOCollection INSTANCE;

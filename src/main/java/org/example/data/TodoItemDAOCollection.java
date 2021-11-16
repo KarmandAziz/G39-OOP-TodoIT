@@ -1,5 +1,6 @@
 package org.example.data;
 
+import org.example.data.interfaces.TodoItemDAO;
 import org.example.model.TodoItem;
 
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class TodoItemDAOCollection implements TodoItemDAO{
+public class TodoItemDAOCollection implements TodoItemDAO {
 
 
    private static final TodoItemDAOCollection INSTANCE;

@@ -22,6 +22,9 @@ public class App {
 
     }
 
+    public static void shutdown(){}
+
+
     private static void copy(File source, File destination) {
         try(InputStream in = new FileInputStream(source);
             OutputStream out = new FileOutputStream(destination)){

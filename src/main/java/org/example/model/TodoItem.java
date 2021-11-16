@@ -2,12 +2,13 @@ package org.example.model;
 
 import org.example.model.Person;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class TodoItem {
+public class TodoItem implements Serializable {
        //fields
-    private final int id;
+    private int id;
     private String title;
     private String taskDescription;
     private LocalDate deadline;
@@ -24,7 +25,7 @@ public class TodoItem {
                     String taskDescription,
                     LocalDate deadline,
                     boolean done,
-                    Person creator)
+                    Person creator)throws RuntimeException
     {
         if(id == 0) throw new RuntimeException("Id is 0");
         this.id = id;
@@ -35,6 +36,7 @@ public class TodoItem {
         setCreator(creator);
     }
 
+    TodoItem(){}
 
 
 

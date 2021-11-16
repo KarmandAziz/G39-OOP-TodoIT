@@ -1,6 +1,7 @@
-package org.example.data;
+package org.example.data.interfaces;
 
 
+import org.example.data.interfaces.GenericCrud;
 import org.example.model.TodoItem;
 
 import java.time.LocalDate;
