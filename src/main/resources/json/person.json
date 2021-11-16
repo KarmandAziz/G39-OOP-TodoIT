@@ -1,0 +1,11 @@
+[ {
+  "id" : 1,
+  "firstName" : "Karmand",
+  "lastName" : "Aziz",
+  "email" : "Karmand94@gmail.com",
+  "credentials" : {
+    "username" : "Karmand",
+    "password" : "Secret",
+    "role" : "ROLE_APP_ADMIN"
+  }
+} ]
