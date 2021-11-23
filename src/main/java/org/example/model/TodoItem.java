@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class TodoItem implements Serializable {
-       //fields
+
     private int id;
     private String title;
     private String taskDescription;
@@ -16,10 +16,6 @@ public class TodoItem implements Serializable {
     private boolean done;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Person creator;
-
-
-
-    // Construction
 
 
     public TodoItem(int id,
@@ -41,8 +37,6 @@ public class TodoItem implements Serializable {
     TodoItem(){}
 
 
-
-    //getters and setters
     public int getId() {
         return id;
     }
