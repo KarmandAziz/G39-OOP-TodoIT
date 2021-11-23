@@ -17,13 +17,15 @@ public class PersonDAOCollection implements PersonDAO {
         INSTANCE = new PersonDAOCollection(null);
     }
 
-    static PersonDAOCollection getTestInstance(List<Person> person){
-        return new PersonDAOCollection(person);
-    }
 
     public static PersonDAOCollection getInstance(){
         return INSTANCE;
-   }
+    }
+
+
+    static PersonDAOCollection getTestInstance(List<Person> person){
+        return new PersonDAOCollection(person);
+    }
 
    private PersonDAOCollection(Collection<Person> personCollection){
         this.personStorage =

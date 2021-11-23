@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Person implements Serializable {
 
@@ -27,7 +26,7 @@ public class Person implements Serializable {
 
     Person(){}
 
-//getters and setters
+
 
     public AppUser getCredentials() {
         return credentials;

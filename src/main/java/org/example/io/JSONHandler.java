@@ -6,20 +6,19 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class JSONManager {
+public class JSONHandler {
 
-    private static final JSONManager INSTANCE = new JSONManager();
+    private static final JSONHandler INSTANCE = new JSONHandler();
 
-    public static JSONManager getInstance(){return INSTANCE;}
+    public static JSONHandler getInstance(){return INSTANCE;}
 
     private final ObjectMapper objectMapper;
 
-    private JSONManager(){
+    private JSONHandler(){
         objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         objectMapper.registerModule(new JavaTimeModule());

@@ -1,14 +1,10 @@
 package org.example;
 
 import org.example.data.PersonDAOCollection;
-import org.example.io.JSONManager;
+import org.example.io.JSONHandler;
 import org.example.model.*;
 
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,7 +19,7 @@ public class App {
                // new Person(1, "Karmand", "Aziz","Karmand94@gmail.com",
                  //       new AppUser("Karmand", "Secret", AppRole.ROLE_APP_ADMIN)));
 
-        JSONManager manager = JSONManager.getInstance();
+        JSONHandler manager = JSONHandler.getInstance();
         List<Person> deserialized = manager.deserializeFromFile(new File("src/main/resources/json/person.json"),Person.class);
         deserialized.forEach(System.out::println);
 
