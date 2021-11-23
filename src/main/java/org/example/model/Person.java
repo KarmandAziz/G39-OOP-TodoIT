@@ -26,8 +26,6 @@ public class Person implements Serializable {
 
     Person(){}
 
-
-
     public AppUser getCredentials() {
         return credentials;
     }
