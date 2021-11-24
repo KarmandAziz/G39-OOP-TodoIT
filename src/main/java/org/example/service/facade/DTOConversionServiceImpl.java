@@ -27,6 +27,8 @@ public class DTOConversionServiceImpl implements DTOConversionService{
         PersonDTO personDTO = null;
         if(person != null){
             personDTO = toMiniDTO(person);
+            personDTO.s
+
 
         }
 
